@@ -1,0 +1,29 @@
+{
+  "name": "c8y_microservice_nodejs",
+  "version": "1.0.0",
+  "description": "Cumulocity microservice application",
+  "main": "app.js",
+  "dependencies": {
+    "express": "4.17.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manasesjesus/c8y_microservice_nodejs.git"
+  },
+  "keywords": [
+    "cumulocity",
+    "iot-platform",
+    "microservice",
+    "docker",
+    "slack"
+  ],
+  "author": "Manasés Jesús",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/manasesjesus/c8y_microservice_nodejs/issues"
+  },
+  "homepage": "https://github.com/manasesjesus/c8y_microservice_nodejs#readme"
+}

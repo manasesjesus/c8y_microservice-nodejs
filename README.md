@@ -1,4 +1,4 @@
-# Cumulocity Microservice
+# Cumulocity Microservice 
 
 Cumulocity microservice developed using Node.js and Docker. It notifies a Slack channel when there are new alarms in a specified tenant.
 
@@ -6,6 +6,7 @@ Cumulocity microservice developed using Node.js and Docker. It notifies a Slack 
 
 - Local Docker installation
 - An account on [cumulocity.com](https://cumulocity.com). Create a free trial to test this example.
+- A Slack channels and appropriate credentials
 
 ### Build
 
@@ -35,3 +36,5 @@ Use a web browser or a terminal command (e.g. cURL) to make a GET request to the
 ```http
 GET <tenant>.cumulocity.com/service/python-microservice/environment
 ```
+
+Your Slack channel will get the posted messages every time a new alarm is raised on the tenant.

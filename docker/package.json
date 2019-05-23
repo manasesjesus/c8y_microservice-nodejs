@@ -4,6 +4,7 @@
   "description": "Cumulocity microservice application",
   "main": "app.js",
   "dependencies": {
+    "@slack/web-api": "^5.0.1",
     "express": "4.17.0"
   },
   "devDependencies": {

@@ -5,11 +5,13 @@ const app = express();
 const port = process.env.PORT || 80;
 
 // Application endpoints
-var routes = require('./routes');
+const routes = require("./routes");
 routes(app); 
 
 // Server listening on port 80
 app.use(express.json());
 app.listen(port);
-console.log("server started on port " + port);
+console.log(`${process.env.APPLICATION_NAME} started on port ${port}`);
 
+// Cumulocity and Slack controllers
+const controllers = require("./controllers");

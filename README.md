@@ -4,9 +4,9 @@ Cumulocity microservice developed using Node.js and Docker. It notifies a Slack 
 
 ### Prerequisites
 
-- Local Docker installation
-- An account on [cumulocity.com](https://cumulocity.com). Create a free trial to test this example.
-- A Slack channels and appropriate credentials
+*   Local Docker installation
+*   An account on [cumulocity.com](https://cumulocity.com). Create a free trial to test this example.
+*   A Slack app, channel and appropriate credentials
 
 ### Build
 

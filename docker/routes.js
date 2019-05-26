@@ -3,17 +3,17 @@
 module.exports = function(app) {
 
     // Hello world
-    app.route('/').get(function(req, res) {
+    app.route("/").get(function(req, res) {
         res.json({ "message" : "Hello world!" });
     });
 
     // Health check
-    app.route('/health').get(function(req, res) {
+    app.route("/health").get(function(req, res) {
         res.json({ "status" : "UP" });
     });
 
     // Environment variables
-    app.route('/environment').get(function(req, res) {
+    app.route("/environment").get(function(req, res) {
         res.json({ 
             "platformUrl" : process.env.C8Y_BASEURL, 
             "microserviceIsolation" : process.env.C8Y_MICROSERVICE_ISOLATION,

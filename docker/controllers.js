@@ -47,32 +47,39 @@ async function postSlackMessage (adata) {
 
 const { Client } = require ("@c8y/client");
 
-
+// Platform credentials
+const baseUrl  = process.env.C8Y_BASEURL;
+const tenant   = process.env.C8Y_BOOTSTRAP_TENANT;
+const user     = process.env.C8Y_BOOTSTRAP_USER;
+const password = process.env.C8Y_BOOTSTRAP_PASSWORD;
 
 (async () => {
-    // Platform authentication
-    const client = await Client.authenticate({ tenant, user, password }, baseUrl);
+    try {
+        // Platform authentication
+        const client = await Client.authenticate({ tenant, user, password }, baseUrl);
 
-    // List filter for unresolved alarms only
-    const filter = {
-        pageSize: 100,
-        withTotalPages: true,
-        resolved: false
-    };
+        // List filter for unresolved alarms only
+        const filter = {
+            pageSize: 100,
+            withTotalPages: true,
+            resolved: false
+        };
 
-    // Get filtered alarms and post a message to Slack
-    const { data } = await client.alarm.list(filter);
-    data.forEach(alarm => {
-        //postSlackMessage(alarm);
-    });
+        // Get filtered alarms and post a message to Slack
+        const { data } = await client.alarm.list(filter);
+        data.forEach(alarm => {
+            postSlackMessage(alarm);
+        });
 
-    // Real time subscription for active alarms
-    client.realtime.subscribe("/alarms/*", (alarm) => {
-        if (alarm.data.data.status === "ACTIVE") {
-            postSlackMessage(alarm.data.data);
-        }
-    });
-
-    console.log("listening to alarms...");
-
+        // Real time subscription for active alarms
+        client.realtime.subscribe("/alarms/*", (alarm) => {
+            if (alarm.data.data.status === "ACTIVE") {
+                postSlackMessage(alarm.data.data);
+            }
+        });
+        console.log("listening to alarms...");
+    }
+    catch (err) {
+        console.err(err);
+    }
 })();

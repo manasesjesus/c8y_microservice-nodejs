@@ -80,6 +80,6 @@ const password = process.env.C8Y_BOOTSTRAP_PASSWORD;
         console.log("listening to alarms...");
     }
     catch (err) {
-        console.err(err);
+        console.error(err);
     }
 })();

@@ -46,17 +46,19 @@ async function postSlackMessage (adata) {
 /********************* Cumulocity *********************/
 
 const { Client } = require ("@c8y/client");
+const { BasicAuth } = require ("@c8y/client");
 
 // Platform credentials
-const baseUrl  = process.env.C8Y_BASEURL;
-const tenant   = process.env.C8Y_BOOTSTRAP_TENANT;
-const user     = process.env.C8Y_BOOTSTRAP_USER;
-const password = process.env.C8Y_BOOTSTRAP_PASSWORD;
+const auth = new BasicAuth({ 
+    user:     "<user>",
+    password: "<password>",
+    tenant:   "<tenant>"
+});
 
 (async () => {
     try {
         // Platform authentication
-        const client = await Client.authenticate({ tenant, user, password }, baseUrl);
+        const client = await new Client(auth, process.env.C8Y_BASEURL);
 
         // List filter for unresolved alarms only
         const filter = {

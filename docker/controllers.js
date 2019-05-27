@@ -50,9 +50,9 @@ const { BasicAuth } = require ("@c8y/client");
 
 // Platform credentials
 const auth = new BasicAuth({ 
-    user: process.env.C8Y_BOOTSTRAP_USER,
-    password: process.env.C8Y_BOOTSTRAP_PASSWORD,
-    tenant: process.env.C8Y_BOOTSTRAP_TENANT
+    user:     "<user>",
+    password: "<password>",
+    tenant:   "<tenant>"
 });
 
 (async () => {

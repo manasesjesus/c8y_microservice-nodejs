@@ -47,3 +47,5 @@ GET <tenant-domain>.cumulocity.com/service/mynode-microservice/environment
 ```
 
 Your Slack channel will get the posted messages every time a new alarm is raised on the tenant.
+
+![Slack app posting alarms](microservice-slack-alarms.png)

@@ -8,7 +8,7 @@ Cumulocity microservice developed using Node.js and Docker. It notifies a Slack 
 
 *   Local Docker installation
 *   An account on [cumulocity.com](https://cumulocity.com). Create a free trial to test this example.
-*   Slack channel, app and OAuth token
+*   Slack channel to post messages to, [Slack app and OAuth token](https://slack.dev/node-slack-sdk/getting-started)
 *   A *.env* file in the root directory with the following content:
 
 ```properties

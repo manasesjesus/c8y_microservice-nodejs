@@ -4,10 +4,10 @@
 
 // Create a new instance of the WebClient class with the OAuth Access Token
 const { WebClient } = require("@slack/web-api");
-const web = new WebClient("xoxp-YOUR-TOKEN-GOES-HERE");
+const web = new WebClient(process.env.SLACK_OAUTH_TOKEN);
 
 // Set your channel ID to know where to send messages to
-const channelId = "MJGBXXX";
+const channelId = process.env.SLACK_CHANNEL_ID;
 
 // Format a message and post it to the channel
 async function postSlackMessage (adata) {

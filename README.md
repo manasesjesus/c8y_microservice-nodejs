@@ -1,14 +1,21 @@
-# Cumulocity Microservice 
+## Cumulocity Microservice 
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/49064d3b224c4c9284cf965d3e45e619)](https://app.codacy.com/app/manasesjesus/c8y_microservice_nodejs?utm_source=github.com&utm_medium=referral&utm_content=manasesjesus/c8y_microservice_nodejs&utm_campaign=Badge_Grade_Dashboard)
 
-Cumulocity microservice developed using Node.js and Docker. It notifies a Slack channel when there are new alarms in a specified tenant.
+Cumulocity microservice developed using Node.js and Docker. It notifies a Slack channel when there are alarms in the subscribed tenants.
 
 ### Prerequisites
 
-*   Local Docker installation
-*   An account on [cumulocity.com](https://cumulocity.com). Create a free trial to test this example.
-*   Slack channel, app and OAuth token
+*   Local Docker installation.
+*   A [Cumulocity IoT](https://cumulocity.com) account. Create a free trial to test this example.
+*   Slack channel to post messages to, [Slack app and OAuth token](https://slack.dev/node-slack-sdk/getting-started).
+*   A *.env* file in the root directory with the following content:
+
+```properties
+PORT=80
+SLACK_OAUTH_TOKEN=<YOUR-TOKEN-GOES-HERE>
+SLACK_CHANNEL_ID=<YOUR-CHANNEL_ID-GOES-HERE>
+```
 
 ### Build
 
@@ -33,10 +40,12 @@ Deploy the microservice application (refer to [Adding own applications](https://
 
 ### Execution
 
-Use a web browser or a terminal command (e.g. cURL) to make a GET request to the microservice endpoints providing your user credentials.
+Use a web browser or a terminal command (e.g. cURL) to make a GET request to the microservice endpoints.
 
 ```http
 GET <tenant-domain>.cumulocity.com/service/mynode-microservice/environment
 ```
 
-Your Slack channel will get the posted messages every time a new alarm is raised on the tenant.
+The Slack channel will get the posted messages every time a new alarm is raised on the subscribed tenants.
+
+![Slack app posting alarms](microservice-slack-alarms.png)

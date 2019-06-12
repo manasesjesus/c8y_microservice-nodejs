@@ -46,6 +46,6 @@ Use a web browser or a terminal command (e.g. cURL) to make a GET request to the
 GET <tenant-domain>.cumulocity.com/service/mynode-microservice/environment
 ```
 
-The Slack channel will get the posted messages every time a new alarm is raised on the tenant.
+The Slack channel will get the posted messages every time a new alarm is raised on the subscribed tenants.
 
 ![Slack app posting alarms](microservice-slack-alarms.png)

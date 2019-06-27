@@ -43,7 +43,7 @@ async function postSlackMessage (adata) {
 }
 
 
-/********************* Cumulocity *********************/
+/********************* Cumulocity IoT *********************/
 
 const { Client, FetchClient, BasicAuth } = require("@c8y/client");
 
@@ -53,13 +53,14 @@ let cachedUsers = [];
 // Get the subscribed users
 async function getUsers () {
     const {
-        tenant: C8Y_BOOTSTRAP_TENANT,
-        user: C8Y_BOOTSTRAP_USER,
-        password: C8Y_BOOTSTRAP_PASSWORD
+        C8Y_BOOTSTRAP_TENANT: tenant,
+        C8Y_BOOTSTRAP_USER: user,
+        C8Y_BOOTSTRAP_PASSWORD: password
     } = process.env;
+
     const client = new FetchClient(new BasicAuth({ tenant, user, password }), baseUrl);
     const res = await client.fetch("/application/currentApplication/subscriptions");
-    
+
     return res.json();
  }
 
@@ -67,8 +68,8 @@ async function getUsers () {
 // where the magic happens...
 (async () => {
 
-    cachedUsers = await getUsers();
-    
+    cachedUsers = (await getUsers()).users;
+
     if (Array.isArray(cachedUsers) && cachedUsers.length) {
         // List filter for unresolved alarms only
         const filter = {

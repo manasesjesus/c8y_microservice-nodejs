@@ -1,8 +1,8 @@
-## Cumulocity Microservice 
+## Cumulocity IoT Microservice 
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/49064d3b224c4c9284cf965d3e45e619)](https://app.codacy.com/app/manasesjesus/c8y_microservice_nodejs?utm_source=github.com&utm_medium=referral&utm_content=manasesjesus/c8y_microservice_nodejs&utm_campaign=Badge_Grade_Dashboard)
 
-Cumulocity microservice developed using Node.js and Docker. It notifies a Slack channel when there are alarms in the subscribed tenants.
+Cumulocity IoT microservice developed using Node.js and Docker. It notifies a Slack channel when there are alarms in the subscribed tenants.
 
 ### Prerequisites
 
@@ -32,11 +32,11 @@ Then pack *image.tar* together with the manifest *cumulocity.json* into a ZIP fi
 $ zip mynode-microservice cumulocity.json image.tar
 ```
 
-The resulting *mynode-microservice.zip* file contains the microservice and it is ready to be uploaded to the Cumulocity platform.
+The resulting *mynode-microservice.zip* file contains the microservice and it is ready to be uploaded to the Cumulocity IoT platform.
 
 ### Deployment
 
-Deploy the microservice application (refer to [Adding own applications](https://cumulocity.com/guides/users-guide/administration/#a-name-adding-applications-a-adding-own-applications) in the Cumulocity's User guide) and subscribe it afterwards. It may take some minutes for the ZIP file to be uploaded. 
+Deploy the microservice application (refer to [Adding own applications](https://cumulocity.com/guides/users-guide/administration/#a-name-adding-applications-a-adding-own-applications) in the Cumulocity IoT's User guide) and subscribe it afterwards. It may take some minutes for the ZIP file to be uploaded. 
 
 ### Execution
 
